@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PERULANGAN</title>
+</head>
+<body>
+    <h2>BELAJAR LOOPING JS</h2>
+    <script>
+        // // PERULANGAN FOR
+        // // LOOPING dari 0 hingga kurang dari 50 dan selalu bertambah 2
+        // for (counter = 0; counter <50; counter+=2) {
+        //     document.write("<p>Perulangan ke-"+counter+"</p>")
+        // }
+
+        // for (counter = 10; counter > 0; counter--) {
+        //     document.write("<p>Perulangan ke-"+counter+"</p>")
+        // }
+
+        // // LOOPING i = 0 hingga kurang dari 10 dan selalu bertambah 1
+        // for (let i = 0; i < 10; i++) {
+        //     document.write("<P>Perulangan ke -" + i +"</p>")
+        // }
+
+        // PERULANGAN NESTED (BERSARANG)
+        // for(let i = 0; i < 10; i++) {
+        //     for(let j = 0; j < 10; j++) {
+        //         document.write("<p>Perulangan ke-"+ i + "," + j +"</p>")
+        //     }
+        // }
+
+        // PERULANGAN FOREACH
+        // menggunakan for dengan operator in 
+        // var languages = ["Javascript", "HTML", "CSS", "TYPESCRIPT"];
+        // for (i in languages) {
+        //     document.write(i+","+ languages[i] + "<br>")
+        // }
+
+        // // for tanpa operator in
+        // var languages = ["Javascript", "HTML", "CSS", "TYPESCRIPT"];
+        // for(i = 0; i < languages.length; i++) {
+        //     document.write(i+","+ languages[i] + "<br>")
+        // }
+
+        // perulangan menggunakan methode forEach()
+        // var days = ["Senin", "Selasa", "Rabu", "Kamis"]
+        // // menampilkan semua hari dengan methode forEach
+        // days.forEach((day) => {
+        //     document.write("<p>" + day + "</p>")
+        // })
+
+        // perulangan repeat (khusus digunakan untuk mengulang teks (string)
+        // document.write("Ulangi kalimat ini!".repeat(100))
+
+        // perulangan while
+        // var ulangi = confirm("Apakah anda mau mengulang?")
+        // var counter = 0
+
+        // while(ulangi) {
+        //     counter++
+        //     ulangi = confirm("Apakah anda mau mengulang?")
+        // }
+        // document.write("Perulangan sudah dilakukan sebanyak "+ counter +"kali")
+
+        // ARRAY 
+        var produk = ["Tas","Baju","Celana"]
+        var myData = [12,2.1, true, "C", "Stikom Banyuwangi"]
+        
+        // // mengambil array
+        document.write(produk[2])
+        document.write(myData[2])
+        // mengambil array dengan perulangan
+        var produk = ["Tas","Baju","Celana"]
+
+        document.write("<h3>Daftar Barang :</h3>")
+        document.write("<ol>")
+        // menggunakan perulangan untuk mencetak semua isi array
+        for (let i = 0; i < produk.length; i++) {
+            document.write("<li>" + produk[i] + "</li>");
+        }
+        document.write("</ol>")
+        
+        // menambah data ke dalam array
+        var buah = ["Mangga", "Apel", "Jeruk"]
+        buah[3] = "Sirsak"
+        document.write("Buah anda : ", buah)
+
+        // methode push
+        var benda = ["Radio", "HP", "Laptop", "Tas"]
+        // menambah benda lain ke dalam array
+        benda.push ("Televisi")
+        document.write(benda)
+
+        // menghapus data array
+        // menghapus dari belakang (POP)
+        var hewan = ["Anjing", "Bekicot", "Scendy", "Babi", "Kambing"]
+
+        hewan.pop()
+        document.write(hewan)
+
+    //     // menghapus dari depan (SHIFT)
+        var hewan = ["Anjing", "Bekicot", "Scendy", "Babi", "Kambing"]
+
+        hewan.shift()
+        document.write(hewan)
+    // </script>
+</body>
+</html>
