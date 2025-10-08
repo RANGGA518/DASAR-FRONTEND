@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>materi function</title>
+  </head>
+  <body>
+    <h1>belajar java script</h1>
+    <script>
+      //Arrow function
+      const penjumlahan = (a, b) => a + b;
+      let hasil = penjumlahan(3, 4, 5, 6);
+
+      alert(`Hasil penjumlahan arrow function = ${hasil}`);
+
+      //Callback
+      const tampilkanHasil = (hasil) => alert(`Hasil = ${hasil}`);
+
+      const jumlahan = (a, b, display) => {
+        let hasil = a + b;
+        display(hasil); // callback function
+      };
+
+      penjumlahan(9, 6, tampilkanHasil);
+      penjumlahan(9, 6, (hasil) => alert(`Wah, hasilnya adalah ${hasil}`));
+
+      //Rest parameter
+      function jumlahkanSemuanya(...bilangan) {
+        let total = 0;
+
+        for (let bil of bilangan) total += bil;
+
+        return total;
+      }
+
+      let hasil1 = jumlahkanSemuanya(1, 2, 3, 4, 5, 6);
+      let hasil2 = jumlahkanSemuanya(9, 8, 7);
+
+      alert(hasil1);
+      alert(hasil2);
+    </script>
+  </body>
+</html>
