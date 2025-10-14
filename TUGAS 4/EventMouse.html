@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT MOUSE</title>
+</head>
+<body>
+    <button id="btn-enter">Mouse Enter</button>
+    <button id="btn-hover">Hover</button>
+    <button id="btn-out">Mouse Out</button>
+
+    <script>
+        const btnEnter = document.getElementById("btn-enter")
+        const btnHover = document.getElementById("btn-hover")
+        const btnOut = document.getElementById("btn-out")
+
+        btnEnter.addEventListener("mouseenter", function(event){
+            event.target.innerText = "Mouse sudah masuk"
+        })
+
+        btnOut.addEventListener("mouseout", function(event){
+            event.target.innerText = "Mouse sudah keluar"
+        })
+        btnHover.addEventListener("mouseover", function(event){
+            window.location.href = "EventMouse2.html"
+            event.target.innerText = "Mouse sudah di atas elemen"
+        })
+    </script>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interaksi Mouse yang Menarik</title>
+  <style>
+    body {
+      background: linear-gradient(135deg, #89f7fe, #66a6ff);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      font-family: "Poppins", sans-serif;
+    }
+
+    h1 {
+      color: white;
+      text-shadow: 0 2px 5px rgba(0,0,0,0.3);
+      margin-bottom: 40px;
+    }
+
+    button {
+      background-color: #ffffff;
+      color: #333;
+      border: none;
+      padding: 15px 40px;
+      font-size: 18px;
+      border-radius: 50px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+      margin: 10px;
+      transition: all 0.3s ease;
+    }
+
+    button.active {
+      background-color: #2ecc71;
+      color: white;
+      transform: scale(1.1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    button.out {
+      background-color: #e74c3c;
+      color: white;
+      transform: scale(0.95);
+    }
+
+    footer {
+      color: white;
+      margin-top: 50px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Efek Mouse Interaktif</h1>
+  <button id="btn-efek">Click Disini</button>
+
+  <script>
+    const btn = document.getElementById("btn-efek");
+
+    // Saat mouse masuk ke tombol
+    btn.addEventListener("mouseenter", function(event) {
+      event.target.innerText = "Mouse Masuk";
+      event.target.classList.add("active");
+      event.target.classList.remove("out");
+    });
+
+    // Saat mouse berada di atas tombol
+    btn.addEventListener("mouseover", function(event) {
+      window.location.href = "EventMouse2.html"
+    });
+
+    // Saat mouse keluar dari tombol
+    btn.addEventListener("mouseout", function(event) {
+      event.target.innerText = "Mouse Keluar";
+      event.target.classList.add("out");
+      event.target.classList.remove("active");
+    });
+  </script>
+</body>
+</html> -->

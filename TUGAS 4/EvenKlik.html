@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT KLIK</title>
+</head>
+<body>
+    <button onclick="hello()">Hello</button>
+    <button id="hello-stikompgri">Hello Stikom PGRI</button>
+
+    <script>
+        function hello() {
+            alert("Hello world")
+        }
+
+        const btnpindah = document.getElementById("hello-stikompgri")
+        btnpindah.addEventListener("click", function() {
+            window.location.href = "Hellostikom.html"
+        })
+    </script>
+</body>
+</html>
