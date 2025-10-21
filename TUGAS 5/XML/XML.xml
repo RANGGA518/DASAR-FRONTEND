@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bookstore>
+    <book>
+        <title>Indonesia Emas</title>
+        <author>Fredric Lesonar</author>
+        <price>Rp 20.023</price>
+    </book>
+    <book>
+        <title>Indonesia Emas Vol-2</title>
+        <author>Fredric Lesonar</author>
+        <price>Rp 20.023</price>
+    </book>
+</bookstore>
