@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<data>
+  <kota nama="Banyuwangi">
+    <tujuan nama="Banyuwangi" biaya="5000"/>
+    <tujuan nama="Jember" biaya="7500"/>
+    <tujuan nama="Probolinggo" biaya="10000"/>
+    <tujuan nama="Surabaya" biaya="15000"/>
+  </kota>
+
+  <kota nama="Jember">
+    <tujuan nama="Banyuwangi" biaya="7500"/>
+    <tujuan nama="Jember" biaya="5000"/>
+    <tujuan nama="Probolinggo" biaya="8500"/>
+    <tujuan nama="Surabaya" biaya="12500"/>
+  </kota>
+
+  <kota nama="Probolinggo">
+    <tujuan nama="Banyuwangi" biaya="10000"/>
+    <tujuan nama="Jember" biaya="8500"/>
+    <tujuan nama="Probolinggo" biaya="5000"/>
+    <tujuan nama="Surabaya" biaya="6500"/>
+  </kota>
+
+  <kota nama="Surabaya">
+    <tujuan nama="Banyuwangi" biaya="15000"/>
+    <tujuan nama="Jember" biaya="12500"/>
+    <tujuan nama="Probolinggo" biaya="6500"/>
+    <tujuan nama="Surabaya" biaya="5000"/>
+  </kota>
+</data>
