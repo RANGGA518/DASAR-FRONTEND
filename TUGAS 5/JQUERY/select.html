@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Belajar Select Option</title>
+</head>
+<body>
+    <h2>Pilih Kota Asal</h2>
+
+    <label for="kota">Pilih Kota:</label>
+    <select id="kota" onchange="tampilkanPilihan()">
+        <option value="">--- Pilih Kota Anda ---</option>
+        <option value="BWI">Banyuwangi</option>
+        <option value="BJR">Bojonegoro</option>
+        <option value="JBR">Jember</option>
+        <option value="SBY">Surabaya</option>
+        <option value="MLG">Malang</option>
+        <option value="MDR">Madura</option>
+    </select>
+
+    <h4 id="hasil"></h4>
+
+    <script>
+        function tampilkanPilihan() {
+            const selectElement = document.getElementById('kota')
+            const hasilElement = document.getElementById('hasil')
+            const pilihanNilai = selectElement.value
+            const pilihanTeks = selectElement.options[selectElement.selectedIndex].textContent
+
+            if (pilihanNilai) {
+                hasilElement.textContent = `Anda memilih ${pilihanTeks}. Nilai yang dikirim adalah : ${pilihanNilai}.`
+                hasilElement.style.color = 'green'
+            } else {
+                hasilElement.textContent = `Silahkan pilih kota Anda.`
+                hasilElement.style.color = 'red'
+            }
+        }
+    </script>
+</body>
+</html>
