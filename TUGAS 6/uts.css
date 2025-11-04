@@ -1,0 +1,183 @@
+/* ====== Gaya Umum ====== */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fb;
+  margin: 40px;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* ====== Container Form ====== */
+.form-container {
+  background-color: #fff;
+  padding: 30px 40px;
+  border-radius: 10px;
+  width: 520px;
+  margin: 0 auto 40px auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ====== Tata Letak Form ====== */
+form {
+  display: grid;
+  grid-template-columns: 140px 1fr;
+  gap: 12px 10px;
+  align-items: center;
+}
+
+label {
+  font-weight: bold;
+  text-align: left;
+}
+
+input,
+select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  transition: 0.2s;
+}
+
+/* Efek fokus pada input dan select */
+input:focus,
+select:focus {
+  border-color: #007acc;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 122, 204, 0.4);
+}
+
+/* ====== Tombol ====== */
+.tombol {
+  grid-column: 1 / span 2;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.tombol button {
+  background-color: #007acc;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin: 0 8px;
+}
+
+.tombol button:hover {
+  background-color: #005f99;
+}
+
+/* ====== Popup Overlay ====== */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* ====== Popup Box ====== */
+.popup {
+  background: #fff;
+  padding: 18px 22px;
+  border-radius: 10px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  width: 400px;
+  max-width: 90%;
+}
+
+.popup h3 {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+
+/* ====== Radio List di Popup ====== */
+#popup-items label,
+#popup-jual label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 15px;
+  padding: 4px 0;
+}
+
+#popup-items input[type="radio"],
+#popup-jual input[type="radio"] {
+  accent-color: #007acc;
+  width: 16px;
+  height: 16px;
+}
+
+/* ====== Tombol di Popup ====== */
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.popup-buttons button {
+  background-color: #007acc;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.popup-buttons button:hover {
+  background-color: #005f99;
+}
+
+#cancelBtn,
+#cancelJual {
+  background-color: #666;
+}
+
+#cancelBtn:hover,
+#cancelJual:hover {
+  background-color: #444;
+}
+
+/* ====== Popup Jenis Penjualan Lebih Kecil ====== */
+#popup-jual .popup {
+  width: 300px;
+}
+
+.ketentuan {
+  text-align: center;
+  margin: 40px auto;
+  background: #fff;
+  width: 555px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  text-align: start;
+}
+
+.ketentuan ul {
+  list-style-type: decimal;
+  padding-left: 20px;
+  margin: 0;
+}
+
+.ketentuan ul li {
+  line-height: 25px;
+}
+.ketentuan h4 {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 19px;
+}
