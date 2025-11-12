@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>APLIKASI PENJUALAN KOMPUTER</title>
+  <link rel="stylesheet" href="uts.css">
+</head>
+<body>
+  <h2>APLIKASI PENJUALAN KOMPUTER</h2><br>
+
+  <div class="form-container">
+    <form method="GET"> 
+      <label for="kategori">Kategori</label>
+      <select id="kategori" onchange="updateKategori()">
+        <option value="">--- PILIH KATEGORI ---</option>
+        <option value="PC">PC/LAPTOP</option>
+        <option value="AKS">AKSESORIS</option>
+      </select>
+
+      <label for="nama-brg">Nama Barang</label>
+      <input type="text" nama="nama-brg" id="nama-brg" placeholder="Pilih kategori dulu..." readonly>
+
+      <label for="harga-brg">Harga Satuan</label>
+      <input type="text" name="harga-brg" id="harga-brg" readonly>
+
+      <label for="jumlah-brg">Jumlah</label>
+      <input type="number" harga="jumlah-brg" id="jumlah-brg">
+
+      <label for="jual">Jenis Penjualan</label>
+      <input type="text" name="jual" id="jual" placeholder="Klik untuk pilih jenis penjualan" readonly>
+
+      <label for="ttl-jual">Total Penjualan</label>
+      <input type="text" name="ttl-jual" id="ttl-jual" readonly>
+
+      <label for="diskon">Diskon</label>
+      <input type="text" name="diskon" id="diskon" readonly>
+
+      <label for="pajak">Pajak</label>
+      <input type="text" name="pajak" id="pajak" readonly>
+
+      <label for="harga-total">Harga Total</label>
+      <input type="text" name="harga-total" id="harga-total" readonly>
+
+      <div class="tombol">
+        <button type="submit">Kirim</button>
+        <button type="reset">Reset</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Popup Barang -->
+  <div id="popup-overlay" class="popup-overlay">
+    <div class="popup">
+      <h3>Pilih Nama Barang</h3>
+      <div id="popup-items"></div>
+      <div class="popup-buttons">
+        <button id="okBtn" type="submit">OK</button>
+        <button id="cancelBtn" type="reset">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Popup Jenis Penjualan -->
+  <div id="popup-jual" class="popup-overlay">
+    <div class="popup">
+      <h3>Pilih Jenis Penjualan</h3>
+      <div class="popup-items">
+        <label><input type="radio" name="jenis" value="Tunai"> Tunai</label><br>
+        <label><input type="radio" name="jenis" value="Kredit"> Kredit</label>
+      </div>
+      <div class="popup-buttons">
+        <button id="okJual" type="submit">OK</button>
+        <button id="cancelJual" type="reset">Batal</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ketentuan">
+    <h4>Ketentuan Penjualan</h4><br>
+    <ul>
+      <li>Diskon 10% jika memilih jenis penjualan Tunai</li>
+      <li>Pajak 15% untuk kategori PC/LAPTOP</li>
+      <li>Pajak 10% untuk kategori AKSESORIS</li>
+    </ul>
+  </div>
+
+  <script src="uts.js"></script>
+</body>
+</html>
