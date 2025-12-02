@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Online Marketplace</title>
+
+    <!-- jQuery UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="logo">Alfa<span>tihah</span></div>
+
+    <div class="search-box">
+        <input type="text" placeholder="Cari produk terbaik...">
+        <button><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+
+    <div class="header-icons">
+        <div id="openCart" class="icon-btn"><i class="fa-solid fa-cart-shopping"></i></div>
+        <div class="icon-btn"><i class="fa-solid fa-heart"></i></div>
+    </div>
+</header>
+
+<!-- CATEGORY -->
+<nav class="category-bar">
+    <div>Elektronik</div>
+    <div>Fashion</div>
+    <div>Olahraga</div>
+    <div>Gaming</div>
+    <div>Kesehatan</div>
+    <div>Kosmetik</div>
+    <div>Rumah Tangga</div>
+    <div>Anak & Bayi</div>
+</nav>
+
+<!-- FILTER HARGA -->
+<section class="filter-box">
+    <h3>Filter Harga</h3>
+    <div id="priceSlider"></div>
+    <p>Harga: <span id="priceLabel">0</span></p>
+</section>
+
+<!-- PRODUK -->
+<section class="product-grid">
+
+    <div class="product-card" data-price="150000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Sabun Mandi Awet Muda</h4>
+        <p class="price">Rp 150.000</p>
+        <p class="sold">1.2RB Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+
+    <div class="product-card" data-price="90000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Kaos Polos Premium Anti Jomblo</h4>
+        <p class="price">Rp 90.000</p>
+        <p class="sold">4.8RB Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+
+    <div class="product-card" data-price="350000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Pomade Ganteng</h4>
+        <p class="price">Rp 350.000</p>
+        <p class="sold">8.1RB Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+    <div class="product-card" data-price="250000">
+        <img src="Screenshot 2025-06-20 180120.png" alt="">
+        <h4>Susu Penyegar</h4>
+        <p class="price">Rp 250.000</p>
+        <p class="sold">952 Terjual</p>
+        <button class="addToCart">Tambah ke Keranjang</button>
+    </div>
+
+</section>
+
+<!-- CART DIALOG -->
+<div id="cartDialog" title="Keranjang Belanja">
+    <ul id="cartItems"></ul>
+    <hr>
+    <p>Total: Rp <span id="cartTotal">0</span></p>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
