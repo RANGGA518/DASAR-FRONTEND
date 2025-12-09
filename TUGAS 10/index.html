@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minimarket</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+
+    <style>
+        .search-box {
+            background-color: #f1f1f1;
+            padding: 8px 12px;
+            border-radius: 10px;
+            width: 100%;
+        }
+
+        .cart-icon {
+            width: 55px;
+            height: 55px;
+            background-color: #f7f7f7;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 22px;
+        }
+
+        .product-card {
+            border-radius: 12px;
+            overflow: hidden;
+            background-color: #ffffff;
+        }
+
+        .product-card img {
+            height: 150px;
+            object-fit: cover;
+        }
+
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 60px;
+            background: #ffffff;
+            border-top: 1px solid #ccc;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            font-size: 13px;
+            z-index: 999;
+        }
+
+        .bottom-nav a {
+            color: #777;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .bottom-nav a.active {
+            color: #0d6efd;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-dark bg-dark p-2 shadow-sm">
+        <div class="container d-flex justify-content-between">
+            <span class="navbar-brand fw-bold fs-5">Alfatihah</span>
+            <button id="darkModeToggle" class="btn btn-outline-light btn-sm">🌙</button>
+        </div>
+    </nav>
+
+    <!-- Search -->
+    <div class="container mt-2">
+        <input type="text" class="search-box" placeholder="Cari produk...">
+    </div>
+
+    <!-- Banner-->
+    <div class="container mt-3">
+        <img src="/static/img/Screenshot 2025-12-09 134214.png" class="w-100 rounded" style="height:150px; object-fit:cover;">
+    </div>
+
+    <!-- Kategori -->
+    <div class="container mt-4">
+        <div class="row text-center g-3">
+            <div class="col-3"><div class="cart-icon">👟</div><small>Sepatu</small></div>
+            <div class="col-3"><div class="cart-icon">📱</div><small>HP</small></div>
+            <div class="col-3"><div class="cart-icon">🎧</div><small>Audio</small></div>
+            <div class="col-3"><div class="cart-icon">💻</div><small>Laptop</small></div>
+        </div>
+    </div>
+
+    <!-- Produk -->
+    <div class="container mt-4 mb-5 pb-5">
+        <h6 class="fw-bold mb-2">Rekomendasi Untuk Anda</h6>
+
+        <div class="row g-3">
+            {% for product in products %}
+            <div class="col-6">
+                <div class="product-card shadow-sm">
+
+                    <!-- Gambar produk -->
+                    <img src="/static/img/Screenshot 2025-12-09 134214.png" class="w-100">
+
+                    <div class="p-2">
+                        <small class="fw-semibold d-block">{{ product.nama }}</small>
+                        <small class="text-primary fw-bold d-block">Rp {{ product.harga }}</small>
+
+                        <a href="/product_detail/{{ product.kode }}" class="btn btn-primary btn-sm w-100 mt-1">
+                            Detail
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+    </div>
+
+    <!-- Bottom Navigation -->
+    <div class="bottom-nav">
+        <a href="/" class="active">
+            <div>🏠</div>
+            Home
+        </a>
+
+        <a href="/cart">
+            <div>🛒</div>
+            Cart
+        </a>
+
+        <a href="#">
+            <div>👤</div>
+            Profil
+        </a>
+    </div>
+
+    <!-- Dark Mode Script -->
+    <script>
+    const body = document.body;
+    const toggle = document.getElementById("darkModeToggle");
+
+    if (localStorage.getItem("darkMode") === "enabled") enableDarkMode();
+
+    toggle.addEventListener("click", () => {
+        body.classList.contains("dark-mode")
+            ? disableDarkMode()
+            : enableDarkMode();
+    });
+
+    function enableDarkMode() {
+        body.classList.add("dark-mode");
+        localStorage.setItem("darkMode", "enabled");
+        toggle.innerHTML = "🌙";
+    }
+
+    function disableDarkMode() {
+        body.classList.remove("dark-mode");
+        localStorage.setItem("darkMode", "disabled");
+        toggle.innerHTML = "☀️";
+    }
+    </script>
+
+</body>
+</html>
