@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>UAS Store</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container d-flex align-items-center gap-4">
+
+        <!-- BRAND -->
+        <a class="navbar-brand fw-bold text-primary" href="/">Minimarket</a>
+
+        <!-- SEARCH AREA -->
+        <div class="flex-grow-1 position-relative">
+
+            <!-- NOTIF SEARCH -->
+            {% if pesan %}
+            <div id="searchNotif" class="search-floating-alert">
+                <div class="alert alert-warning text-center shadow-sm mb-0">
+                    {{ pesan }}
+                </div>
+            </div>
+            {% endif %}
+
+            <!-- SEARCH FORM -->
+            <form action="/" method="get" class="d-flex align-items-center search-wrapper mx-auto">
+                <input type="search"
+                       name="q"
+                       class="form-control search-input"
+                       placeholder="Cari produk..."
+                       value="{{ keyword or '' }}">
+
+                <button type="submit" class="btn btn-primary ms-2 search-btn">
+                    Cari
+                </button>
+
+                {% if keyword %}
+                <a href="/" class="btn btn-outline-secondary ms-2 search-reset">
+                    Reset
+                </a>
+                {% endif %}
+            </form>
+
+        </div>
+
+        <!-- RIGHT AREA -->
+        <div class="d-flex align-items-center gap-3">
+
+            <!-- CART -->
+            <a href="/cart" class="position-relative text-decoration-none">
+                <img src="{{ url_for('static', filename='img/cart.png') }}" width="30">
+                {% if cart_count > 0 %}
+                <span class="cart-badge">
+                    {{ cart_count }}
+                </span>
+                {% endif %}
+
+            </a>
+
+            <!-- PROFILE / AUTH -->
+            {% if session.get("user") %}
+            <a href="/profile" class="d-flex align-items-center text-decoration-none text-dark user-profile">
+                <img src="{{ url_for('static', filename='img/images.png') }}" width="32" height="32" class="rounded-circle me-2">
+                <span class="fw-semibold">Hi, {{ session.user }}</span>
+            </a>
+            {% else %}
+            <a href="/login" class="btn btn-outline-primary btn-sm">Masuk</a>
+            <a href="/register" class="btn btn-primary btn-sm">Daftar</a>
+            {% endif %}
+        </div>
+    </div>
+</nav>
+
+<!-- ================= BANNER ================= -->
+<div class="container mt-4">
+    <div class="banner-slider shadow-sm rounded">
+        <div class="banner-track">
+
+            <div class="banner-slide">
+                <img src="{{ url_for('static', filename='img/banner/banner1.jpg') }}">
+                <div class="banner-overlay">
+                    <h3>Promo Hemat Mingguan</h3>
+                    <p>Diskon hingga 50%</p>
+                </div>
+            </div>
+
+            <div class="banner-slide">
+                <img src="{{ url_for('static', filename='img/banner/banner2.jpg') }}">
+                <div class="banner-overlay">
+                    <h3>Belanja Lebih Murah</h3>
+                    <p>Harga spesial hari ini</p>
+                </div>
+            </div>
+
+            <div class="banner-slide">
+                <img src="{{ url_for('static', filename='img/banner/banner3.jpg') }}">
+                <div class="banner-overlay">
+                    <h3>Kebutuhan Rumah Tangga</h3>
+                    <p>Lengkap & praktis</p>
+                </div>
+            </div>
+
+        </div>
+
+        <button class="banner-btn prev">&#10094;</button>
+        <button class="banner-btn next">&#10095;</button>
+    </div>
+</div>
+
+<!-- ================= KATEGORI ================= -->
+<div class="container mt-4">
+    <h5 class="mb-3 fw-bold">Kategori Belanja</h5>
+
+    <div class="kategori-scroll">
+        {% for k in kategori %}
+        <a href="/kategori/{{ k.id }}" class="kategori-item text-decoration-none">
+            <div class="kategori-icon">
+                <img src="{{ url_for(
+                    'static',
+                    filename='img/kategori/' ~ k.nama_kategori|lower|replace(' ', '-') ~ '.png'
+                ) }}">
+            </div>
+            <div class="kategori-text">{{ k.nama_kategori }}</div>
+        </a>
+        {% endfor %}
+    </div>
+</div>
+
+<!-- ================= PRODUK ================= -->
+{% if produk_rekomendasi %}
+<div class="container mt-5">
+    <h5 class="fw-bold mb-3">Rekomendasi Produk</h5>
+
+    <div class="row g-3">
+        {% for p in produk_rekomendasi %}
+        <div class="col-xl-2 col-lg-3 col-md-4 col-6">
+            <div class="card product-card h-100">
+                <img src="{{ url_for('static', filename='img/' ~ p.gambar) }}" class="card-img-top product-img">
+            
+                <div class="card-body d-flex flex-column">
+                    <h6 class="product-title">
+                        {{ p.nama_barang }}
+                    </h6>
+            
+                    <p class="product-desc">
+                        {{ p.deskripsi }}
+                    </p>
+            
+                    <p class="product-price">
+                        Rp {{ p.harga | rupiah }}
+                    </p>
+            
+                    <a href="/product/{{ p.kode_barang }}" class="btn btn-outline-primary btn-sm mt-auto">
+                        Lihat Produk
+                    </a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+<!-- ================= JS ================= -->
+<script>
+    const notif = document.getElementById("searchNotif");
+    if (notif) {
+        setTimeout(() => {
+            notif.style.opacity = "0";
+            notif.style.transform = "translateY(-10px)";
+            setTimeout(() => notif.remove(), 300);
+        }, 3000);
+    }
+
+    const track = document.querySelector(".banner-track");
+    const slides = document.querySelectorAll(".banner-slide");
+    const nextBtn = document.querySelector(".banner-btn.next");
+    const prevBtn = document.querySelector(".banner-btn.prev");
+
+    let index = 0;
+    const total = slides.length;
+    let interval;
+
+    function updateSlide() {
+        track.style.transform = `translateX(-${index * 100}%)`;
+    }
+
+    function nextSlide() {
+        index = (index + 1) % total;
+        updateSlide();
+    }
+
+    function prevSlide() {
+        index = (index - 1 + total) % total;
+        updateSlide();
+    }
+
+    // AUTO SLIDE
+    function startAutoSlide() {
+        interval = setInterval(nextSlide, 4000);
+    }
+
+    function stopAutoSlide() {
+        clearInterval(interval);
+    }
+
+    // CLICK BUTTON
+    nextBtn.addEventListener("click", () => {
+        stopAutoSlide();
+        nextSlide();
+        startAutoSlide();
+    });
+
+    prevBtn.addEventListener("click", () => {
+        stopAutoSlide();
+        prevSlide();
+        startAutoSlide();
+    });
+
+    startAutoSlide();
+</script>
+
+</body>
+</html>
